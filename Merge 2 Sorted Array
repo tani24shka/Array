@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+vector < int > sortedArray(vector < int > a, vector < int > b) {
+    // Write your code here
+    set<int>v;
+    vector<int>o;
+    int n=a.size();
+    int m=b.size();
+    for(int i=0;i<n;i++)
+    {
+      v.insert(a[i]);
+    }
+    for(int i=0;i<m;i++)
+    {
+        v.insert(b[i]);
+    }
+   for(auto it:v){
+
+        o.push_back(it);
+
+    }
+
+    return o;
+
+    
+}
