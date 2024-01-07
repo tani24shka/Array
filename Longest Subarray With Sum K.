@@ -1,0 +1,46 @@
+#include <bits/stdc++.h> 
+
+int getLongestSubarray(vector<int>& nums, int k){
+
+    unordered_map<int,int> mpp;
+
+    int s=0;
+
+    int n=nums.size();
+
+    int i=0;
+
+    int maxlen=0;
+
+    while(i<n){
+
+        s=s+nums[i];
+
+        if(mpp.find(s)==mpp.end()){
+
+            mpp[s]=i;
+
+        }
+
+        int rem=s-k;
+
+        if(mpp.find(rem)!=mpp.end()){
+
+            maxlen=max(maxlen,i-mpp[rem]);
+
+        }
+
+        if(s==k){
+
+            maxlen=max(maxlen,i+1);
+
+        }
+
+        i++;
+
+    }
+
+    return maxlen;
+
+}
+
